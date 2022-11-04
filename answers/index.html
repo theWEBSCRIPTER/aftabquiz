@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Answers - Islamic Quiz</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <nav>
+    <img src="../logo.jpg" height="40"></img>
+    <select onchange="load(this.selectedIndex+1)">
+      <option data-value="1">Quiz #1</option>
+      <option disabled data-value="2">Quiz #2</option>
+<option disabled data-value="3">Quiz #3</option>
+<option disabled data-value="4">Quiz #4</option>
+<option disabled data-value="5">Quiz #5</option>
+<option disabled data-value="6">Quiz #6</option>
+<option disabled data-value="7">Quiz #7</option>
+<option disabled data-value="8">Quiz #8</option>
+<option disabled data-value="9">Quiz #9</option>
+<option disabled data-value="10">Quiz #10</option>
+<option disabled data-value="11">Quiz #11</option>
+<option disabled data-value="12">Quiz #12</option>
+<option disabled data-value="13">Quiz #13</option>
+<option disabled data-value="14">Quiz #14</option>
+<option disabled data-value="15">Quiz #15</option>
+<option disabled data-value="16">Quiz #16</option>
+<option disabled data-value="17">Quiz #17</option>
+<option disabled data-value="18">Quiz #18</option>
+<option disabled data-value="19">Quiz #19</option>
+<option disabled data-value="20">Quiz #20</option>
+<option disabled data-value="21">Quiz #21</option>
+<option disabled data-value="22">Quiz #22</option>
+<option disabled data-value="23">Quiz #23</option>
+<option disabled data-value="24">Quiz #24</option>
+<option disabled data-value="25">Quiz #25</option>
+<option disabled data-value="26">Quiz #26</option>
+<option disabled data-value="27">Quiz #27</option>
+<option disabled data-value="28">Quiz #28</option>
+<option disabled data-value="29">Quiz #29</option>
+<option disabled data-value="30">Quiz #30</option>
+    </select>
+  </nav>
+  <main>
+    <img id="bg" src="../logo.jpg" height="200"></img>
+  </main>
+<script>
+function load(num){
+  document.querySelector("main").innerHTML = ""
+  fetch(`./${num}.json`)
+  .then(r=>r.json())
+  .catch(err=>{alert("Sorry! An Error occurred!")})
+  .then(r=>{
+    for(let o in r){
+      document.querySelector("main").innerHTML += `<div class="res"><div class="q">سوال نمبر ${Number(o)+1}: ${r[o].q}</div><div class="a">صحیح جواب: ${r[o].a}</div>`
+    }
+   })
+}
+load("1")
+
+</script>
+</body>
+</html>
